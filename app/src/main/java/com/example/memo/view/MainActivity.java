@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         coordinatorLayout = findViewById(R.id.coordinator_layout);
         recyclerView = findViewById(R.id.recycler_view);
         noNotesView = findViewById(R.id.empty_notes_view);
-
+//
         db = new DatabaseHelper(this);
 
         notesList.addAll(db.getAllNotes());
