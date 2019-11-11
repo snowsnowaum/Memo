@@ -11,7 +11,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="@null" />
 
     <TextView
         android:id="@+id/empty_notes_view"
@@ -22,5 +23,5 @@
         android:fontFamily="sans-serif-light"
         android:text="@string/msg_no_notes"
         android:textColor="@color/msg_no_notes"
-        android:textSize="@dimen/msg_no_notes"/>
+        android:textSize="@dimen/msg_no_notes" />
 </RelativeLayout>

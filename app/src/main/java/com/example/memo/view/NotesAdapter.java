@@ -14,12 +14,12 @@ import java.util.Date;
 import java.util.List;
 
 import com.example.memo.R;
-import com.example.memo.database.model.Note;
+import com.example.memo.database.model.SimpleNotes;
 
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.MyViewHolder> {
 
     private Context context;
-    private List<Note> notesList;
+    private List<SimpleNotes> notesList;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView note;
@@ -35,7 +35,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.MyViewHolder
     }
 
 
-    public NotesAdapter(Context context, List<Note> notesList) {
+    public NotesAdapter(Context context, List<SimpleNotes> notesList) {
         this.context = context;
         this.notesList = notesList;
     }
@@ -50,7 +50,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.MyViewHolder
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        Note note = notesList.get(position);
+        SimpleNotes note = notesList.get(position);
 
         holder.note.setText(note.getNote());
 

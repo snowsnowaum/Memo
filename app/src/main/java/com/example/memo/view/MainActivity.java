@@ -10,7 +10,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import com.example.memo.R;
 import com.example.memo.database.DatabaseHelper;
-import com.example.memo.database.model.Note;
+import com.example.memo.database.model.SimpleNotes;
 import com.example.memo.utils.MyDividerItemDecoration;
 import com.example.memo.utils.RecyclerTouchListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -30,7 +30,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private NotesAdapter mAdapter;
-    private List<Note> notesList = new ArrayList<>();
+    private List<SimpleNotes> notesList = new ArrayList<>();
     private CoordinatorLayout coordinatorLayout;
     private RecyclerView recyclerView;
     private TextView noNotesView;
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         coordinatorLayout = findViewById(R.id.coordinator_layout);
         recyclerView = findViewById(R.id.recycler_view);
         noNotesView = findViewById(R.id.empty_notes_view);
-//
+
         db = new DatabaseHelper(this);
 
         notesList.addAll(db.getAllNotes());
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         long id = db.insertNote(note);
 
         // get the newly inserted note from db
-        Note n = db.getNote(id);
+        SimpleNotes n = db.getNote(id);
 
         if (n != null) {
             // adding new note to array list at 0 position
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
      * item in the list by its position
      */
     private void updateNote(String note, int position) {
-        Note n = notesList.get(position);
+        SimpleNotes n = notesList.get(position);
         // updating note text
         n.setNote(note);
 
@@ -173,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
      * when shouldUpdate=true, it automatically displays old note and changes the
      * button text to UPDATE
      */
-    private void showNoteDialog(final boolean shouldUpdate, final Note note, final int position) {
+    private void showNoteDialog(final boolean shouldUpdate, final SimpleNotes note, final int position) {
         LayoutInflater layoutInflaterAndroid = LayoutInflater.from(getApplicationContext());
         View view = layoutInflaterAndroid.inflate(R.layout.note_dialog, null);
 
