@@ -11,9 +11,6 @@ import java.util.List;
 
 import com.example.memo.database.model.SimpleNotes;
 
-/**
- * Created by ravi on 15/03/18.
- */
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
